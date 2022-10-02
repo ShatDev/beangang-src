@@ -356,7 +356,8 @@ function App() {
     if (countymoney > 0)
     {
       e.preventDefault();
-      await contract.sellGang();
+      const sellaction = await contract.sellGang();
+      await sellaction.wait();
       window.location.reload(true);
     }
     else {
@@ -368,7 +369,8 @@ function App() {
     if (countmoney > 0)
     {
       e.preventDefault();
-      await contract.withdrawMoneyBags();
+      const withdrawaction = await contract.withdrawMoneyBags();
+      await withdrawaction.wait();
       window.location.reload(true);
     }
     else {
@@ -380,7 +382,8 @@ function App() {
     if (countpmoney > 0)
     {
       e.preventDefault();
-      await contract.collectMoneyBags();
+      const collectaction = await contract.collectMoneyBags();
+      await collectaction.wait();
       window.location.reload(true);
     }
     else {
